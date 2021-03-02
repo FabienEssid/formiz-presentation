@@ -15,7 +15,7 @@ export const ApplicationForm = () => {
     <Card>
       <Formiz connect={form} onSubmit={handleSubmit}>
         <form noValidate onSubmit={form.submit}>
-          <Input name="firstname" />
+          <Input name="firstname" label="Firstname" />
           <Button type="submit" colorScheme="green" mt={3}>
             Submit
           </Button>

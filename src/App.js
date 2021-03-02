@@ -10,24 +10,24 @@ import { ApplicationForm } from '@/pages/ApplicationForm';
 
 export const App = () => (
   <ViewportHeight bg="green.400">
-    <ExampleInformation mt={6} mb={12} title="Example 01">
+    <ExampleInformation mt={6} mb={12} title="Example 02">
       <List>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Create our first Formiz component
+            Add our first validations on our field
           </Text>
         </ListItem>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Create our first Formiz form
+            Display an error if necessary
           </Text>
         </ListItem>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Submit our form
+            Submit only when the form is valid
           </Text>
         </ListItem>
       </List>

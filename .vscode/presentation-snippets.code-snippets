@@ -1,81 +1,43 @@
 {
-  "01 - Input component": {
+  "01 - required attribute": {
     "prefix": "01",
-    "body": [
-      "import React from 'react';",
-      "",
-      "import { Input as ChakraUIInput } from '@chakra-ui/react';",
-      "",
-      "export const Input = (props) => {",
-      "return (",
-      "<ChakraUIInput",
-      "borderColor=\"gray.300\"",
-      "{...props}",
-      "/>",
-      ");",
-      "};"
-    ]
+    "body": ["required=\"Firstname is required\""]
   },
-  "02 - Input import": {
+  "02 - isValid, errorMessage": {
     "prefix": "02",
-    "body": ["import { Input } from '@/components/Input';"]
+    "body": ["isValid, errorMessage"]
   },
-  "03 - useField hook": {
+  "03 - isSubmitted, isPristine": {
     "prefix": "03",
-    "body": ["import { useField } from '@formiz/core';"]
+    "body": ["isSubmitted, isPristine"]
   },
-  "04 - useField usage": {
+  "04 - showError": {
     "prefix": "04",
     "body": [
-      "export const Input = (props) => {",
-      "const { value, setValue } = useField(props);",
+      "const [isFocused, setIsFocused] = React.useState(false);",
+      "const showError = !isValid && !isFocused && (!isPristine || isSubmitted);",
       "",
-      "return (",
-      "<ChakraUIInput borderColor=\"gray.300\" {...props} />",
-      ");",
-      "};"
+      "const handleFocus = () => setIsFocused(true);",
+      "const handleBlur = () => setIsFocused(false);"
     ]
   },
-  "05 - handleChange method": {
+  "05 - onFocus, onBlur": {
     "prefix": "05",
-    "body": ["const handleChange = (e) => setValue(e.target.value);"]
+    "body": ["onFocus={handleFocus}", "onBlur={handleBlur}"]
   },
-  "06 - Input attributes": {
+  "06 - isNotEmptyString": {
     "prefix": "06",
-    "body": ["onChange={handleChange}", "value={value || ''}"]
+    "body": [
+      "validations={[",
+      "{",
+      "rule: isNotEmptyString(),",
+      "message: 'This field cannot be empty',",
+      "}",
+      "]}"
+    ]
   },
-  "07 - Formiz import": {
+  "07 - disabled submit": {
     "prefix": "07",
-    "body": ["import { Formiz, useForm } from '@formiz/core';"]
-  },
-  "08 - Formiz usage": {
-    "prefix": "08",
-    "body": [
-      "export const ApplicationForm = () => {",
-      "const form = useForm();",
-      "",
-      "return (",
-      "<Formiz connect={form} onSubmit={handleSubmit}>",
-      "<form noValidate onSubmit={form.submit}>",
-      "<Card>",
-      "<Input name=\"firstName\" />",
-      "</Card>",
-      "</form>",
-      "</Formiz>",
-      ");",
-      "};"
-    ]
-  },
-  "09 - onSubmit method": {
-    "prefix": "09",
-    "body": ["const handleSubmit = (values) => console.log({ values });"]
-  },
-  "10 - Submit button": {
-    "prefix": "10",
-    "body": [
-      "<Button type=\"submit\" colorScheme=\"green\" mt={3}>",
-      "Submit",
-      "</Button>"
-    ]
+    "body": ["disabled={form.isSubmitted && !form.isValid}"]
   }
 }
