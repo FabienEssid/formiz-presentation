@@ -44,6 +44,13 @@ export const ApplicationForm = () => {
             name="passwordConfirmation"
             label="Password confirm"
             required="Password is required"
+            validations={[
+              {
+                rule: (value) => value === form.values?.password,
+                message: 'Passwords are not the same',
+                deps: [form.values.password],
+              },
+            ]}
           />
 
           <Button
