@@ -1,0 +1,12 @@
+.cache
+.history
+.gitignore
+build
+node_modules
+package.json
+yarn.lock
+public
+*.md
+*.mdx
+*.yml
+*.yaml
