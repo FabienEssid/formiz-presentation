@@ -10,12 +10,18 @@ import { ApplicationForm } from '@/pages/ApplicationForm';
 
 export const App = () => (
   <ViewportHeight bg="green.400">
-    <ExampleInformation mt={6} mb={12} title="Example 03">
+    <ExampleInformation mt={6} mb={12} title="Example 04">
       <List>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Add a custom validation on the password field
+            Explore Formiz with an exotic field
+          </Text>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={FaCheck} color="white" />
+          <Text as="span" color="white" fontSize="xl">
+            Add a custom validation on it
           </Text>
         </ListItem>
       </List>

@@ -5,6 +5,7 @@ import { Formiz, useForm } from '@formiz/core';
 import { isNotEmptyString } from '@formiz/validations';
 
 import { Card } from '@/components/Card';
+import { IdenticalPictures } from '@/components/IdenticalPictures';
 import { Input } from '@/components/Input';
 
 export const ApplicationForm = () => {
@@ -50,6 +51,20 @@ export const ApplicationForm = () => {
                 message: 'Passwords are not the same',
                 deps: [form.values.password],
               },
+            ]}
+          />
+
+          <IdenticalPictures
+            name="robotCheck"
+            label="Choose two identicals images if you're not a robot"
+            required="You must choose two identicals images"
+            options={[
+              'https://source.unsplash.com/iDQVmcPFOCI/200x200',
+              'https://source.unsplash.com/rCZ44N2lKS0/200x200',
+              'https://source.unsplash.com/ja9VHwgcABo/200x200',
+              'https://source.unsplash.com/vuMTQj6aQQ0/200x200',
+              'https://source.unsplash.com/2EJCSULRwC8/200x200',
+              'https://source.unsplash.com/R4WCbazrD1g/200x200',
             ]}
           />
 
