@@ -1,0 +1,81 @@
+{
+  "01 - Input component": {
+    "prefix": "01",
+    "body": [
+      "import React from 'react';",
+      "",
+      "import { Input as ChakraUIInput } from '@chakra-ui/react';",
+      "",
+      "export const Input = (props) => {",
+      "return (",
+      "<ChakraUIInput",
+      "borderColor=\"gray.300\"",
+      "{...props}",
+      "/>",
+      ");",
+      "};"
+    ]
+  },
+  "02 - Input import": {
+    "prefix": "02",
+    "body": ["import { Input } from '@/components/Input';"]
+  },
+  "03 - useField hook": {
+    "prefix": "03",
+    "body": ["import { useField } from '@formiz/core';"]
+  },
+  "04 - useField usage": {
+    "prefix": "04",
+    "body": [
+      "export const Input = (props) => {",
+      "const { value, setValue } = useField(props);",
+      "",
+      "return (",
+      "<ChakraUIInput borderColor=\"gray.300\" {...props} />",
+      ");",
+      "};"
+    ]
+  },
+  "05 - handleChange method": {
+    "prefix": "05",
+    "body": ["const handleChange = (e) => setValue(e.target.value);"]
+  },
+  "06 - Input attributes": {
+    "prefix": "06",
+    "body": ["onChange={handleChange}", "value={value || ''}"]
+  },
+  "07 - Formiz import": {
+    "prefix": "07",
+    "body": ["import { Formiz, useForm } from '@formiz/core';"]
+  },
+  "08 - Formiz usage": {
+    "prefix": "08",
+    "body": [
+      "export const ApplicationForm = () => {",
+      "const form = useForm();",
+      "",
+      "return (",
+      "<Formiz connect={form} onSubmit={handleSubmit}>",
+      "<form noValidate onSubmit={form.submit}>",
+      "<Card>",
+      "<Input name=\"firstName\" />",
+      "</Card>",
+      "</form>",
+      "</Formiz>",
+      ");",
+      "};"
+    ]
+  },
+  "09 - onSubmit method": {
+    "prefix": "09",
+    "body": ["const handleSubmit = (values) => console.log({ values });"]
+  },
+  "10 - Submit button": {
+    "prefix": "10",
+    "body": [
+      "<Button type=\"submit\" colorScheme=\"green\" mt={3}>",
+      "Submit",
+      "</Button>"
+    ]
+  }
+}

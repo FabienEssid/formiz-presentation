@@ -1,9 +1,5 @@
 import React from 'react';
 
-import { Heading } from '@chakra-ui/react';
+import { Card } from '@/components/Card';
 
-export const ApplicationForm = () => (
-  <Heading color="white" size="4xl">
-    Formiz presentation
-  </Heading>
-);
+export const ApplicationForm = () => <Card />;
