@@ -10,24 +10,12 @@ import { ApplicationForm } from '@/pages/ApplicationForm';
 
 export const App = () => (
   <ViewportHeight bg="green.400">
-    <ExampleInformation mt={6} mb={12} title="Example 02">
+    <ExampleInformation mt={6} mb={12} title="Example 03">
       <List>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Add our first validations on our field
-          </Text>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={FaCheck} color="white" />
-          <Text as="span" color="white" fontSize="xl">
-            Display an error if necessary
-          </Text>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={FaCheck} color="white" />
-          <Text as="span" color="white" fontSize="xl">
-            Submit only when the form is valid
+            Add a custom validation on the password field
           </Text>
         </ListItem>
       </List>

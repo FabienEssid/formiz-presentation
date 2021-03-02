@@ -1,43 +1,20 @@
 {
-  "01 - required attribute": {
+  "01 - custom validation": {
     "prefix": "01",
-    "body": ["required=\"Firstname is required\""]
+    "body": [
+      "rule: () => true",
+      "message: 'Passwords are not the same',"
+    ]
   },
-  "02 - isValid, errorMessage": {
+  "02 - validation": {
     "prefix": "02",
-    "body": ["isValid, errorMessage"]
+    "body": [
+      "(value) => value === form.values?.password",
+      "message: 'Passwords are not the same',"
+    ]
   },
-  "03 - isSubmitted, isPristine": {
+  "03 - dependencies": {
     "prefix": "03",
-    "body": ["isSubmitted, isPristine"]
-  },
-  "04 - showError": {
-    "prefix": "04",
-    "body": [
-      "const [isFocused, setIsFocused] = React.useState(false);",
-      "const showError = !isValid && !isFocused && (!isPristine || isSubmitted);",
-      "",
-      "const handleFocus = () => setIsFocused(true);",
-      "const handleBlur = () => setIsFocused(false);"
-    ]
-  },
-  "05 - onFocus, onBlur": {
-    "prefix": "05",
-    "body": ["onFocus={handleFocus}", "onBlur={handleBlur}"]
-  },
-  "06 - isNotEmptyString": {
-    "prefix": "06",
-    "body": [
-      "validations={[",
-      "{",
-      "rule: isNotEmptyString(),",
-      "message: 'This field cannot be empty',",
-      "}",
-      "]}"
-    ]
-  },
-  "07 - disabled submit": {
-    "prefix": "07",
-    "body": ["disabled={form.isSubmitted && !form.isValid}"]
+    "body": ["deps: [form.values?.password]"]
   }
 }

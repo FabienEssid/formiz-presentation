@@ -30,7 +30,12 @@ export const Input = (props) => {
   const handleChange = (e) => setValue(e.target.value);
 
   return (
-    <FormControl id={id} isRequired={required} isInvalid={showError}>
+    <FormControl
+      id={id}
+      isRequired={required}
+      isInvalid={showError}
+      mb={!showError ? 8 : 0}
+    >
       <FormLabel>{label}</FormLabel>
       <ChakraUIInput
         id={id}
@@ -41,7 +46,9 @@ export const Input = (props) => {
         value={value || ''}
         {...props}
       />
-      <FormErrorMessage>{errorMessage}</FormErrorMessage>
+      <FormErrorMessage mt={0} h={8}>
+        {errorMessage}
+      </FormErrorMessage>
     </FormControl>
   );
 };
@@ -50,6 +57,7 @@ Input.propTypes = {
   label: PropTypes.string,
   required: PropTypes.string,
 };
+
 Input.defaultProps = {
   label: '',
   required: null,

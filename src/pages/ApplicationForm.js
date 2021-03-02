@@ -28,6 +28,24 @@ export const ApplicationForm = () => {
             ]}
           />
 
+          <Input
+            name="password"
+            label="Password"
+            required="Password is required"
+            validations={[
+              {
+                rule: isNotEmptyString(),
+                message: 'This field cannot be empty',
+              },
+            ]}
+          />
+
+          <Input
+            name="passwordConfirmation"
+            label="Password confirm"
+            required="Password is required"
+          />
+
           <Button
             type="submit"
             colorScheme="green"
