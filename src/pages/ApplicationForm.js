@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Button } from '@chakra-ui/react';
 import { Formiz, useForm } from '@formiz/core';
+import { isNotEmptyString } from '@formiz/validations';
 
 import { Card } from '@/components/Card';
 import { Input } from '@/components/Input';
@@ -13,10 +14,26 @@ export const ApplicationForm = () => {
 
   return (
     <Card>
-      <Formiz connect={form} onSubmit={handleSubmit}>
+      <Formiz connect={form} onValidSubmit={handleSubmit}>
         <form noValidate onSubmit={form.submit}>
-          <Input name="firstname" label="Firstname" />
-          <Button type="submit" colorScheme="green" mt={3}>
+          <Input
+            name="firstname"
+            label="Firstname"
+            required="Firstname is required"
+            validations={[
+              {
+                rule: isNotEmptyString(),
+                message: 'This field cannot be empty',
+              },
+            ]}
+          />
+
+          <Button
+            type="submit"
+            colorScheme="green"
+            mt={3}
+            disabled={form.isSubmitted && !form.isValid}
+          >
             Submit
           </Button>
         </form>

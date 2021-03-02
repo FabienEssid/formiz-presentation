@@ -10,22 +10,38 @@ import { useField } from '@formiz/core';
 import PropTypes from 'prop-types';
 
 export const Input = (props) => {
-  const { id, value, setValue } = useField(props);
+  const {
+    id,
+    value,
+    setValue,
+    isValid,
+    isSubmitted,
+    isPristine,
+    errorMessage,
+  } = useField(props);
   const { label, required } = props;
+
+  const [isFocused, setIsFocused] = React.useState(false);
+  const showError = !isValid && !isFocused && (!isPristine || isSubmitted);
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
 
   const handleChange = (e) => setValue(e.target.value);
 
   return (
-    <FormControl id={id} isRequired={required} isInvalid={false}>
+    <FormControl id={id} isRequired={required} isInvalid={showError}>
       <FormLabel>{label}</FormLabel>
       <ChakraUIInput
         id={id}
         borderColor="gray.300"
         onChange={handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
         value={value || ''}
         {...props}
       />
-      <FormErrorMessage>Error message</FormErrorMessage>
+      <FormErrorMessage>{errorMessage}</FormErrorMessage>
     </FormControl>
   );
 };
