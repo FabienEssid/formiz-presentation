@@ -10,12 +10,12 @@ import { ApplicationForm } from '@/pages/ApplicationForm';
 
 export const App = () => (
   <ViewportHeight bg="green.400">
-    <ExampleInformation mt={6} mb={12} title="Example 05">
+    <ExampleInformation mt={6} mb={12} title="Example 06">
       <List>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Add FormizStep in our form
+            Add the ability to navigate between steps
           </Text>
         </ListItem>
       </List>

@@ -1,14 +1,50 @@
 {
-  "01 - submit step": {
+  "01 - map on steps": {
     "prefix": "01",
     "body": [
-      "form.submitStep"
+      "<HStack spacing={4} justify=\"center\" mb={10}>",
+      "{(form.steps || []).map((step) => (",
+      "<Button key={step.name} colorScheme=\"green\" variant=\"solid\">",
+      "{step.label}",
+      "</Button>",
+      "))}",
+      "</HStack>"
     ]
   },
-  "02 - disabled submit": {
+  "02 - General Information": {
     "prefix": "02",
     "body": [
-      "disabled={form.isStepSubmitted && !form.isStepValid}"
+      "General Information"
+    ]
+  },
+  "03 - Password": {
+    "prefix": "03",
+    "body": [
+      "Password"
+    ]
+  },
+  "04 - Confirmation": {
+    "prefix": "04",
+    "body": [
+      "Confirmation"
+    ]
+  },
+  "05 - onClick on steps": {
+    "prefix": "05",
+    "body": [
+      "onClick={() => form.goToStep(step.name)}"
+    ]
+  },
+  "06 - outline on focus": {
+    "prefix": "06",
+    "body": [
+      "variant={step.name === form.currentStep.name ? 'solid' : 'outline'}"
+    ]
+  },
+  "07 - display steps which have errors": {
+    "prefix": "07",
+    "body": [
+      "{step.isSubmitted && !step.isValid ? '⚠️ ' : null}"
     ]
   },
 }
