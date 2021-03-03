@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '@chakra-ui/react';
+import { Button, HStack } from '@chakra-ui/react';
 import { Formiz, FormizStep, useForm } from '@formiz/core';
 import { isNotEmptyString } from '@formiz/validations';
 
@@ -17,7 +17,23 @@ export const ApplicationForm = () => {
     <Card>
       <Formiz connect={form} onValidSubmit={handleSubmit}>
         <form noValidate onSubmit={form.submitStep}>
-          <FormizStep name="step-1">
+          <HStack spacing={4} justify="center" mb={10}>
+            {(form.steps || []).map((step) => (
+              <Button
+                key={step.name}
+                colorScheme="green"
+                variant={
+                  step.name === form.currentStep.name ? 'solid' : 'outline'
+                }
+                onClick={() => form.goToStep(step.name)}
+              >
+                {step.isSubmitted && !step.isValid ? '⚠️ ' : null}
+                {step.label}
+              </Button>
+            ))}
+          </HStack>
+
+          <FormizStep name="step-1" label="Informations générales">
             <Input
               name="firstname"
               label="Firstname"
@@ -31,7 +47,7 @@ export const ApplicationForm = () => {
             />
           </FormizStep>
 
-          <FormizStep name="step-2">
+          <FormizStep name="step-2" label="Mot de passe">
             <Input
               name="password"
               label="Password"
@@ -58,7 +74,7 @@ export const ApplicationForm = () => {
             />
           </FormizStep>
 
-          <FormizStep name="step-3">
+          <FormizStep name="step-3" label="Confirmation">
             <IdenticalPictures
               name="robotCheck"
               label="Choose two identicals images if you're not a robot"
