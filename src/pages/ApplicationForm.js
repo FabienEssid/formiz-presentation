@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, HStack } from '@chakra-ui/react';
+import { Box, Button, Fade, HStack } from '@chakra-ui/react';
 import { Formiz, FormizStep, useForm } from '@formiz/core';
 import { isMinNumber, isNotEmptyString } from '@formiz/validations';
 
@@ -59,13 +59,21 @@ export const ApplicationForm = () => {
               ]}
             />
 
-            <Checkbox
-              name="authorization"
-              label="Authorization"
-              required="You have to check this field"
-            >
-              Your parents agree to give you access to this application
-            </Checkbox>
+            {form.values.age && form.values.age < 18 ? (
+              <Fade in={form.values.age && form.values.age < 18}>
+                <Box h={28}>
+                  <Checkbox
+                    name="authorization"
+                    label="Authorization"
+                    required="You have to check this field"
+                  >
+                    Your parents agree to give you access to this application
+                  </Checkbox>{' '}
+                </Box>
+              </Fade>
+            ) : (
+              <Box h={28} />
+            )}
           </FormizStep>
 
           <FormizStep name="step-2" label="Mot de passe">
