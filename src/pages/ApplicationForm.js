@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Button, HStack } from '@chakra-ui/react';
 import { Formiz, FormizStep, useForm } from '@formiz/core';
-import { isNotEmptyString } from '@formiz/validations';
+import { isMinNumber, isNotEmptyString } from '@formiz/validations';
 
 import { Card } from '@/components/Card';
+import { Checkbox } from '@/components/Checkbox';
 import { IdenticalPictures } from '@/components/IdenticalPictures';
 import { Input } from '@/components/Input';
 
@@ -45,6 +46,26 @@ export const ApplicationForm = () => {
                 },
               ]}
             />
+
+            <Input
+              name="age"
+              label="Age"
+              required="Age is required"
+              validations={[
+                {
+                  rule: isMinNumber(0),
+                  message: 'Age has to be a positive number',
+                },
+              ]}
+            />
+
+            <Checkbox
+              name="authorization"
+              label="Authorization"
+              required="You have to check this field"
+            >
+              Your parents agree to give you access to this application
+            </Checkbox>
           </FormizStep>
 
           <FormizStep name="step-2" label="Mot de passe">

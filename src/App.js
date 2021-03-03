@@ -10,12 +10,18 @@ import { ApplicationForm } from '@/pages/ApplicationForm';
 
 export const App = () => (
   <ViewportHeight bg="green.400">
-    <ExampleInformation mt={6} mb={12} title="Example 06">
+    <ExampleInformation mt={6} mb={12} title="Example 07">
       <List>
         <ListItem>
           <ListIcon as={FaCheck} color="white" />
           <Text as="span" color="white" fontSize="xl">
-            Add the ability to navigate between steps
+            Add a checkbox field
+          </Text>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={FaCheck} color="white" />
+          <Text as="span" color="white" fontSize="xl">
+            Add a condition around the checkbox field
           </Text>
         </ListItem>
       </List>

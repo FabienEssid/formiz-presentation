@@ -1,50 +1,15 @@
 {
-  "01 - map on steps": {
+  "01 - condition": {
     "prefix": "01",
     "body": [
-      "<HStack spacing={4} justify=\"center\" mb={10}>",
-      "{(form.steps || []).map((step) => (",
-      "<Button key={step.name} colorScheme=\"green\" variant=\"solid\">",
-      "{step.label}",
-      "</Button>",
-      "))}",
-      "</HStack>"
-    ]
-  },
-  "02 - General Information": {
-    "prefix": "02",
-    "body": [
-      "General Information"
-    ]
-  },
-  "03 - Password": {
-    "prefix": "03",
-    "body": [
-      "Password"
-    ]
-  },
-  "04 - Confirmation": {
-    "prefix": "04",
-    "body": [
-      "Confirmation"
-    ]
-  },
-  "05 - onClick on steps": {
-    "prefix": "05",
-    "body": [
-      "onClick={() => form.goToStep(step.name)}"
-    ]
-  },
-  "06 - outline on focus": {
-    "prefix": "06",
-    "body": [
-      "variant={step.name === form.currentStep.name ? 'solid' : 'outline'}"
-    ]
-  },
-  "07 - display steps which have errors": {
-    "prefix": "07",
-    "body": [
-      "{step.isSubmitted && !step.isValid ? '⚠️ ' : null}"
+      "{form.values.age && form.values.age < 18 ? (",
+      "<Fade in={form.values.age && form.values.age < 18}>",
+      "<Box h={28}>",
+      "</Box>",
+      "</Fade>",
+      ") : (",
+      "<Box h={28} />",
+      ")}",
     ]
   },
 }
