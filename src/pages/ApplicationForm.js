@@ -7,6 +7,7 @@ import { isNotEmptyString } from '@formiz/validations';
 import { Card } from '@/components/Card';
 import { IdenticalPictures } from '@/components/IdenticalPictures';
 import { Input } from '@/components/Input';
+import { Select } from '@/components/Select';
 
 export const ApplicationForm = () => {
   const form = useForm();
@@ -54,6 +55,18 @@ export const ApplicationForm = () => {
             ]}
           />
 
+          <Select
+            name="color"
+            label="Select your favorite color"
+            options={[
+              { value: 'blue', label: 'Blue' },
+              { value: 'red', label: 'Red' },
+              { value: 'green', label: 'Green' },
+            ]}
+            isClearable
+            required="Color is required"
+          />
+
           <IdenticalPictures
             name="robotCheck"
             label="Choose two identicals images if you're not a robot"
@@ -65,6 +78,16 @@ export const ApplicationForm = () => {
               'https://source.unsplash.com/vuMTQj6aQQ0/200x200',
               'https://source.unsplash.com/2EJCSULRwC8/200x200',
               'https://source.unsplash.com/R4WCbazrD1g/200x200',
+            ]}
+            validations={[
+              {
+                rule: (value) => (value || {}).selectedCount === 2,
+                message: 'You need to select a second image',
+              },
+              {
+                rule: (value) => (value || {}).isIdentical,
+                message: 'Images are not identical',
+              },
             ]}
           />
 
