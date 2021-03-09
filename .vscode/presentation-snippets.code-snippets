@@ -1,45 +1,14 @@
 {
-  "01 - validations": {
+  "01 - submit step": {
     "prefix": "01",
     "body": [
-      "validations={[",
-      "{",
-      "rule: () => true,",
-      "message: 'You need to select a second image',",
-      "},",
-      "{",
-      "rule: () => true,",
-      "message: 'Images are not identical',",
-      "},",
-      "]}",
+      "form.submitStep"
     ]
   },
-  "02 - first validation": {
+  "02 - disabled submit": {
     "prefix": "02",
     "body": [
-      "(value) => (value || {}).selectedCount === 2"
+      "disabled={form.isStepSubmitted && !form.isStepValid}"
     ]
   },
-  "03 - second validation": {
-    "prefix": "03",
-    "body": [
-      "(value) => (value || {}).isIdentical"
-    ]
-  },
-  "04 - select field": {
-    "prefix": "04",
-    "body": [
-      "<Select",
-      "name=\"color\"",
-      "label=\"Select your favorite color\"",
-      "options={[",
-      "{ value: 'blue', label: 'Blue' },",
-      "{ value: 'red', label: 'Red' },",
-      "{ value: 'green', label: 'Green' },",
-      "]}",
-      "isClearable",
-      "required=\"Color is required\"",
-      "/>",
-    ]
-  }
 }

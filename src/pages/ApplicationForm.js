@@ -7,7 +7,6 @@ import { isNotEmptyString } from '@formiz/validations';
 import { Card } from '@/components/Card';
 import { IdenticalPictures } from '@/components/IdenticalPictures';
 import { Input } from '@/components/Input';
-import { Select } from '@/components/Select';
 
 export const ApplicationForm = () => {
   const form = useForm();
@@ -53,18 +52,6 @@ export const ApplicationForm = () => {
                 deps: [form.values.password],
               },
             ]}
-          />
-
-          <Select
-            name="color"
-            label="Select your favorite color"
-            options={[
-              { value: 'blue', label: 'Blue' },
-              { value: 'red', label: 'Red' },
-              { value: 'green', label: 'Green' },
-            ]}
-            isClearable
-            required="Color is required"
           />
 
           <IdenticalPictures
